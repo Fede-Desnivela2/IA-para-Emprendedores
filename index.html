@@ -220,31 +220,71 @@
             color: var(--color-principal);
             margin-bottom: 40px;
         }
-        .testimonial-grid {
+
+        /* Contenedor principal de testimonios para la galería */
+        .testimonial-gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espacio entre la imagen grande y las miniaturas */
+            max-width: 600px; /* Ancho máximo para la galería de testimonios */
+            margin: 0 auto;
         }
-        .testimonial-item {
-            flex: 1;
-            min-width: 280px;
-            max-width: 300px; /* Ajusta el tamaño de cada captura */
+
+        /* Contenedor de la imagen grande del testimonio */
+        .testimonial-display {
             background-color: var(--color-fondo-seccion);
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            padding: 15px; /* Relleno ligero alrededor de la imagen */
-            overflow: hidden; /* Asegura que la imagen no desborde */
-            display: flex; /* Para centrar la imagen si es necesario */
-            justify-content: center;
-            align-items: center;
+            padding: 15px;
+            width: 100%; /* Ocupa el 100% del max-width de .testimonial-gallery */
+            box-sizing: border-box; /* Incluye padding en el ancho */
         }
-        /* Las imágenes de testimonios vuelven a su tamaño original (max-width: 100%) */
-        .testimonial-item img {
-            max-width: 100%; 
+        .testimonial-display img {
+            max-width: 100%;
             height: auto;
             display: block;
+            margin: 0 auto; /* Centra la imagen dentro de su contenedor */
             border-radius: 5px;
+        }
+
+        /* Contenedor de las miniaturas de los testimonios */
+        .testimonial-thumbnails {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las miniaturas se envuelvan en varias líneas */
+            justify-content: center;
+            gap: 10px; /* Espacio entre las miniaturas */
+            width: 100%;
+        }
+
+        /* Estilo de cada miniatura individual */
+        .testimonial-thumbnail-item {
+            width: 80px; /* Ancho fijo para las miniaturas */
+            height: 80px; /* Alto fijo para las miniaturas */
+            overflow: hidden;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent; /* Borde transparente por defecto */
+            transition: border-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+            display: block;
+        }
+
+        /* Estilo de la miniatura activa */
+        .testimonial-thumbnail-item.active {
+            border-color: var(--color-principal); /* Borde azul para la miniatura seleccionada */
+            transform: scale(1.05); /* Ligeramente más grande */
+        }
+
+        .testimonial-thumbnail-item:hover {
+            border-color: var(--color-acento); /* Borde naranja al pasar el mouse */
+            transform: scale(1.05);
         }
 
 
@@ -341,9 +381,14 @@
             #problem-solution h2, #video-section h2, #benefits h2, #testimonials h2, #lead-form h2 {
                 font-size: 2em;
             }
-            .benefit-item, .testimonial-item {
+            .benefit-item {
                 min-width: unset;
                 width: 100%;
+            }
+            /* En móvil, las miniaturas pueden ser un poco más grandes si es necesario */
+            .testimonial-thumbnail-item {
+                width: 70px;
+                height: 70px;
             }
         }
 
@@ -361,7 +406,7 @@
             #hero, #problem-solution, #video-section, #benefits, #testimonials, #lead-form {
                 padding: 40px 15px;
             }
-            .benefit-item, .testimonial-item {
+            .benefit-item {
                 padding: 20px;
             }
             footer {
@@ -369,6 +414,10 @@
             }
             .ml-form-embedContent h4 {
                 font-size: 1.5em;
+            }
+            .testimonial-thumbnail-item {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
@@ -442,24 +491,30 @@
         <div class="container">
             <h2>Historias Reales: Quienes Ya Están Transformando Su Futuro con la IA</h2>
             <p>No solo lo decimos nosotros. Mira lo que personas como tú están logrando al aplicar estrategias simples de Inteligencia Artificial en su día a día.</p>
-            <div class="testimonial-grid">
-                <div class="testimonial-item">
-                    <img src="testimonio-1.jpg" alt="Testimonio de cliente 1" title="Testimonio de cliente sobre la guía de IA">
+            
+            <div class="testimonial-gallery">
+                <div class="testimonial-display">
+                    <img id="main-testimonial-image" src="testimonio-1.jpg" alt="Testimonio de cliente 1" title="Testimonio de cliente sobre la guía de IA">
                 </div>
-                <div class="testimonial-item">
-                    <img src="testimonio-2.jpg" alt="Testimonio de cliente 2" title="Otro testimonio de éxito con IA">
-                </div>
-                <div class="testimonial-item">
-                    <img src="testimonio-3.jpg" alt="Testimonio de cliente 3" title="Testimonio inspirador sobre emprendimiento con IA">
-                </div>
-                <div class="testimonial-item">
-                    <img src="testimonio-4.jpg" alt="Testimonio de cliente 4" title="Testimonio de cliente sobre la guía de IA">
-                </div>
-                <div class="testimonial-item">
-                    <img src="testimonio-5.jpg" alt="Testimonio de cliente 5" title="Otro testimonio de éxito con IA">
-                </div>
-                <div class="testimonial-item">
-                    <img src="testimonio-6.jpg" alt="Testimonio de cliente 6" title="Testimonio inspirador sobre emprendimiento con IA">
+                <div class="testimonial-thumbnails">
+                    <div class="testimonial-thumbnail-item active">
+                        <img src="testimonio-1.jpg" alt="Miniatura Testimonio 1" data-full-src="testimonio-1.jpg" data-alt="Testimonio de cliente 1">
+                    </div>
+                    <div class="testimonial-thumbnail-item">
+                        <img src="testimonio-2.jpg" alt="Miniatura Testimonio 2" data-full-src="testimonio-2.jpg" data-alt="Testimonio de cliente 2">
+                    </div>
+                    <div class="testimonial-thumbnail-item">
+                        <img src="testimonio-3.jpg" alt="Miniatura Testimonio 3" data-full-src="testimonio-3.jpg" data-alt="Testimonio de cliente 3">
+                    </div>
+                    <div class="testimonial-thumbnail-item">
+                        <img src="testimonio-4.jpg" alt="Miniatura Testimonio 4" data-full-src="testimonio-4.jpg" data-alt="Testimonio de cliente 4">
+                    </div>
+                    <div class="testimonial-thumbnail-item">
+                        <img src="testimonio-5.jpg" alt="Miniatura Testimonio 5" data-full-src="testimonio-5.jpg" data-alt="Testimonio de cliente 5">
+                    </div>
+                    <div class="testimonial-thumbnail-item">
+                        <img src="testimonio-6.jpg" alt="Miniatura Testimonio 6" data-full-src="testimonio-6.jpg" data-alt="Testimonio de cliente 6">
+                    </div>
                 </div>
             </div>
         </div>
@@ -526,6 +581,35 @@
         if (window.ml_webform_28295963_loaded) {
             window.ml_webform_28295963_loaded();
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('main-testimonial-image');
+            const thumbnails = document.querySelectorAll('.testimonial-thumbnail-item');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Eliminar la clase 'active' de todas las miniaturas
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+
+                    // Añadir la clase 'active' a la miniatura clickeada
+                    this.classList.add('active');
+
+                    // Cambiar la imagen principal
+                    const newSrc = this.querySelector('img').getAttribute('data-full-src');
+                    const newAlt = this.querySelector('img').getAttribute('data-alt');
+                    mainImage.src = newSrc;
+                    mainImage.alt = newAlt;
+                    mainImage.title = newAlt; // También actualiza el título
+                });
+            });
+
+            // Opcional: Asegurarse de que la primera miniatura esté activa al cargar
+            if (thumbnails.length > 0) {
+                thumbnails[0].classList.add('active');
+            }
+        });
     </script>
 </body>
 </html>
