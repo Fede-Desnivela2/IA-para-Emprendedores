@@ -71,7 +71,7 @@
             font-size: 1.3em;
             color: var(--color-texto-claro);
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto =30px;
         }
 
         /* Estilo para la imagen de portada */
@@ -459,8 +459,8 @@
             <p>Un breve video donde te explico de manera sencilla cómo la Inteligencia Artificial puede ser tu mejor asistente, liberándote tiempo y abriéndote puertas hacia nuevas oportunidades laborales y de negocio, incluso si partes desde cero.</p>
             <div class="video-container">
                 <iframe id="youtube-video" width="560" height="315"
-                    src="https://www.youtube.com/watch?v=0R4LOdtAFsU7"
-                    title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    src="https://www.youtube.com/embed/"
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
@@ -619,10 +619,19 @@
         let player; // Variable global para el objeto del reproductor de YouTube
 
         // 1. Cargar el API de IFrame Player de YouTube
+        // Esta función se llama automáticamente cuando el script del API de YouTube termina de cargar
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-video', {
+                // El ID 'youtube-video' debe coincidir con el id de tu iframe
+                videoId: 'BT04glGDjB4', // ¡ID de tu video insertado aquí!
+                playerVars: {
+                    'autoplay': 0, // No auto-reproducir al cargar la página
+                    'controls': 1, // Mostrar controles del reproductor
+                    'mute': 1, // Mutear el video por defecto para facilitar el autoplay por scroll
+                    'enablejsapi': 1 // Habilitar la API de JavaScript
+                },
                 events: {
-                    'onReady': onPlayerReady
+                    'onReady': onPlayerReady // Llama a onPlayerReady cuando el reproductor esté listo
                 }
             });
         }
@@ -641,12 +650,12 @@
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // El video está en el viewport, reproducir
+                        // El video está en el viewport, reproducir si no está ya reproduciéndose
                         if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
                             player.playVideo();
                         }
                     } else {
-                        // El video no está en el viewport, pausar
+                        // El video no está en el viewport, pausar si está reproduciéndose
                         if (player.getPlayerState() === YT.PlayerState.PLAYING) {
                             player.pauseVideo();
                         }
@@ -660,7 +669,7 @@
 
         // Carga el script del API de YouTube de forma asíncrona
         const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/watch?v=0R4LOdtAFsU8";
+        tag.src = "https://www.youtube.com/iframe_api"; // URL del API de YouTube
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
