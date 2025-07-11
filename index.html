@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA para Emprendedores: Tu Nueva Oportunidad</title>
+    <title>IA para Emprendedores: Tu Nueva Oportunidad de Ingreso y Libertad</title>
+    <meta name="description" content="Descubre 8 estrategias clave de IA para ahorrar tiempo, iniciar tu emprendimiento desde cero y generar ingresos extra, sin ser un experto. ¡Descarga la guía gratuita ahora!">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Paleta de Colores Sugerida - AJUSTA ESTOS VALORES A TU MARCA */
@@ -56,7 +57,6 @@
             padding: 60px 20px;
             text-align: center;
             border-bottom: 1px solid #eee;
-            flex-grow: 1; /* Permite que el contenido principal ocupe el espacio disponible */
         }
 
         .hero-content h1 {
@@ -71,7 +71,7 @@
             font-size: 1.3em;
             color: var(--color-texto-claro);
             max-width: 700px;
-            margin: 0 auto 30px; /* Margen inferior para separar del botón/imagen */
+            margin: 0 auto 30px;
         }
 
         /* Estilo para la imagen de portada */
@@ -100,7 +100,68 @@
             background-color: #e68a00; /* Tono un poco más oscuro */
         }
 
-        /* Sección de Beneficios / Problema-Solución */
+        /* Sección de Problema/Solución */
+        #problem-solution {
+            background-color: var(--color-fondo-claro);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        #problem-solution h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: var(--color-principal);
+            margin-bottom: 20px;
+        }
+
+        #problem-solution p {
+            font-size: 1.1em;
+            color: var(--color-texto-claro);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Sección de Video */
+        #video-section {
+            background-color: var(--color-fondo-seccion);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        #video-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: var(--color-principal);
+            margin-bottom: 20px;
+        }
+        #video-section p {
+            font-size: 1.1em;
+            color: var(--color-texto-claro);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px; /* Ancho máximo para el video */
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+
+        /* Sección de Beneficios */
         #benefits {
             background-color: var(--color-fondo-claro);
             padding: 60px 20px;
@@ -123,13 +184,13 @@
         }
 
         .benefit-item {
-            background-color: var(--color-fondo-seccion);
+            background-color: var(--color-fondo-seccion); /* Cambiado a blanco para contraste con fondo claro */
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             padding: 30px;
             flex: 1;
-            min-width: 280px; /* Mínimo ancho antes de apilarse */
-            max-width: 380px; /* Máximo ancho antes de pasar a la siguiente columna */
+            min-width: 280px;
+            max-width: 380px;
             text-align: left;
         }
 
@@ -146,9 +207,49 @@
             color: var(--color-texto-claro);
         }
 
+        /* Sección de Testimonios */
+        #testimonials {
+            background-color: var(--color-fondo-claro); /* Fondo claro para los testimonios */
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        #testimonials h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: var(--color-principal);
+            margin-bottom: 40px;
+        }
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .testimonial-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 300px; /* Ajusta el tamaño de cada captura */
+            background-color: var(--color-fondo-seccion);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 15px; /* Relleno ligero alrededor de la imagen */
+            overflow: hidden; /* Asegura que la imagen no desborde */
+            display: flex; /* Para centrar la imagen si es necesario */
+            justify-content: center;
+            align-items: center;
+        }
+        .testimonial-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px; /* Bordes redondeados para la captura */
+        }
+
+
         /* Sección de Formulario / Captura de Leads */
         #lead-form {
-            background-color: var(--color-fondo-formulario); /* Azul pastel */
+            background-color: var(--color-fondo-formulario);
             padding: 60px 20px;
             text-align: center;
         }
@@ -166,6 +267,7 @@
             margin-bottom: 40px;
         }
 
+        /* Estilos específicos para el formulario de MailerLite - Aseguran que se vea bien */
         .ml-form-embedContainer {
             max-width: 500px;
             margin: 0 auto;
@@ -174,18 +276,52 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+        .ml-form-embedContent h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-principal);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .ml-form-embedContent p {
+            font-size: 1em;
+            color: var(--color-texto-claro);
+        }
+        .ml-form-fieldRow input.form-control {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .ml-form-embedSubmit button.primary {
+            background-color: var(--color-acento);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .ml-form-embedSubmit button.primary:hover {
+            background-color: #e68a00;
+        }
 
         /* Footer */
         footer {
-            background-color: var(--color-texto-oscuro); /* Un gris oscuro o el color principal */
+            background-color: var(--color-texto-oscuro);
             color: white;
             text-align: center;
             padding: 20px 0;
             font-size: 0.9em;
+            margin-top: auto; /* Empuja el footer al final de la página */
         }
 
         footer a {
-            color: var(--color-acento); /* Naranja para los enlaces del footer */
+            color: var(--color-acento);
             text-decoration: none;
         }
 
@@ -198,16 +334,13 @@
             .hero-content h1 {
                 font-size: 2.2em;
             }
-
             .hero-content .subtitle {
                 font-size: 1.1em;
             }
-
-            #benefits h2, #lead-form h2 {
+            #problem-solution h2, #video-section h2, #benefits h2, #testimonials h2, #lead-form h2 {
                 font-size: 2em;
             }
-
-            .benefit-item {
+            .benefit-item, .testimonial-item {
                 min-width: unset;
                 width: 100%;
             }
@@ -217,26 +350,24 @@
             .hero-content h1 {
                 font-size: 1.8em;
             }
-
             .hero-content .subtitle {
                 font-size: 1em;
             }
-
             .call-to-action .button {
                 padding: 12px 25px;
                 font-size: 1em;
             }
-
-            #benefits, #lead-form {
+            #hero, #problem-solution, #video-section, #benefits, #testimonials, #lead-form {
                 padding: 40px 15px;
             }
-
-            .benefit-item {
+            .benefit-item, .testimonial-item {
                 padding: 20px;
             }
-
             footer {
                 padding: 15px 10px;
+            }
+            .ml-form-embedContent h4 {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -244,60 +375,98 @@
 <body>
     <header>
         <div class="container">
-            <h1>IA para Emprendedores</h1>
+            <h1>IA para Todos: Tu Oportunidad Ahora</h1>
         </div>
     </header>
 
     <section id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Transforma Tu Negocio con Inteligencia Artificial</h1>
-                <p class="subtitle">Descubre las 8 estrategias prácticas con Inteligencia Artificial para ahorrar tiempo, optimizar tu gestión, iniciar tu emprendimiento y disparar tus ventas, sin ser un experto y con total flexibilidad.</p>
+                <h1>Desbloquea Tu Futuro: Emprende o Genera Ingresos Extra con Inteligencia Artificial</h1>
+                <p class="subtitle">Si buscas una salida laboral, un ingreso adicional desde casa, o dar el primer paso hacia tu propio negocio sin ser un experto, esta guía gratuita es tu inicio. Aprende 8 estrategias prácticas que la IA pone al alcance de tu mano.</p>
                 
-                <img src="portada-guia-ia.jpg" alt="Portada de la guía IA para Emprendedores" class="cover-image">
+                <img src="portada-guia-ia.jpg" alt="Portada de la guía IA para Emprendedores: 8 Estrategias Clave" class="cover-image">
 
                 <div class="call-to-action">
-                    <a href="#lead-form" class="button">¡DESCARGA LA GUÍA GRATIS!</a>
+                    <a href="#lead-form" class="button">¡DESCARGA LA GUÍA GRATIS Y EMPIEZA!</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem-solution">
+        <div class="container">
+            <h2>¿Cansado de la rutina, buscando una salida o soñando con un ingreso extra?</h2>
+            <p>Quizás estás sin trabajo, o eres un ama de casa con ganas de aportar más desde casa, pero sientes que no tienes el tiempo, el dinero o el conocimiento para empezar algo propio. La idea de emprender suena grande, compleja, y llena de riesgos... ¿verdad? O tal vez crees que la tecnología es "demasiado para ti".</p>
+            <p>La buena noticia es que el mundo ha cambiado. Hoy, la **Inteligencia Artificial** es tu aliada más poderosa. No necesitas ser un experto en tecnología, ni tener un capital enorme. La IA está democratizando el emprendimiento, poniendo herramientas al alcance de *todos* para crear, automatizar y generar ingresos desde la comodidad de tu hogar y con total flexibilidad.</p>
+            <p>Esta guía te mostrará cómo la IA te da el poder de empezar pequeño, sin miedo, y transformar esa idea en una fuente real de ingresos. Es tu oportunidad de dar un giro a tu vida.</p>
+        </div>
+    </section>
+
+    <section id="video-section">
+        <div class="container">
+            <h2>Mira Cómo la IA Puede Transformar Tu Día a Día (Video Explicativo)</h2>
+            <p>Un breve video donde te explico de manera sencilla cómo la Inteligencia Artificial puede ser tu mejor asistente, liberándote tiempo y abriéndote puertas hacia nuevas oportunidades laborales y de negocio, incluso si partes desde cero.</p>
+            <div class="video-container">
+                <iframe src="[ENLACE_A_TU_VIDEO_EXPLICATIVO_AQUI]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
     <section id="benefits">
         <div class="container">
-            <h2>¿Qué Problemas Resuelve la IA para Ti?</h2>
+            <h2>Con esta guía, Descubrirás Cómo la IA te Ayuda a:</h2>
             <div class="benefit-grid">
                 <div class="benefit-item">
-                    <h3>Ahorro de Tiempo Masivo</h3>
-                    <p>Automatiza tareas repetitivas y dedica tu tiempo a lo que realmente importa: crecer tu negocio.</p>
+                    <h3>Generar Ingresos Flexibles</h3>
+                    <p>Encuentra nuevas formas de ganar dinero, ya sea para un extra o para tu sustento principal, adaptándose a tu tiempo disponible.</p>
                 </div>
                 <div class="benefit-item">
-                    <h3>Optimización de Gestión</h3>
-                    <p>Organiza tus procesos, desde la atención al cliente hasta la facturación, de forma más inteligente.</p>
+                    <h3>Emprender Sin Experiencia Previa</h3>
+                    <p>La IA simplifica tareas complejas, permitiéndote crear tu negocio o servicios desde cero, sin necesidad de conocimientos técnicos avanzados.</p>
                 </div>
                 <div class="benefit-item">
-                    <h3>Nuevas Oportunidades</h3>
-                    <p>Identifica nichos, crea contenido persuasivo y expande tu alcance sin esfuerzo extra.</p>
+                    <h3>Aprovechar Tu Tiempo al Máximo</h3>
+                    <p>Automatiza tareas repetitivas y dedica tu energía a lo que realmente disfrutas, como pasar tiempo con tu familia o desarrollar nuevas ideas.</p>
                 </div>
                 <div class="benefit-item">
-                    <h3>Incremento de Ventas</h3>
-                    <p>Personaliza ofertas, mejora la comunicación y llega a más clientes con estrategias impulsadas por IA.</p>
+                    <h3>Conseguir Tu Primera Oportunidad Laboral</h3>
+                    <p>Aprende habilidades demandadas y crea servicios con IA que te abran las puertas a nuevas fuentes de trabajo o proyectos.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="testimonials">
+        <div class="container">
+            <h2>Historias Reales: Quienes Ya Están Transformando Su Futuro con la IA</h2>
+            <p>No solo lo decimos nosotros. Mira lo que personas como tú están logrando al aplicar estrategias simples de Inteligencia Artificial en su día a día.</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <img src="testimonio-1.jpg" alt="Testimonio de cliente 1" title="Testimonio de cliente sobre la guía de IA">
+                </div>
+                <div class="testimonial-item">
+                    <img src="testimonio-2.jpg" alt="Testimonio de cliente 2" title="Otro testimonio de éxito con IA">
+                </div>
+                <div class="testimonial-item">
+                    <img src="testimonio-3.jpg" alt="Testimonio de cliente 3" title="Testimonio inspirador sobre emprendimiento con IA">
+                </div>
+                </div>
+        </div>
+    </section>
+
     <section id="lead-form">
         <div class="container">
-            <h2>¡Tu Futuro Comienza Aquí!</h2>
-            <p>Descarga ahora la guía que cambiará tu forma de emprender. Es 100% gratuita y está llena de estrategias aplicables desde hoy.</p>
+            <h2>¡Tu Transformación Comienza Hoy!</h2>
+            <p>Es el momento de tomar las riendas. Descarga ahora la guía que te mostrará el camino para emprender o generar ingresos extra con la ayuda de la Inteligencia Artificial. Es 100% gratuita y está llena de estrategias que podrás aplicar desde hoy mismo.</p>
+            
             <div class="ml-form-embedContainer ml-subscribe-form-28295963">
                 <div class="ml-form-align-center">
                     <div class="ml-form-embedWrapper expand-form">
                         <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                            <div class="ml-form-embedContent" style="">
+                            <div class="ml-form-embedContent">
                                 <h4>Descarga tu guía gratuita: "IA para Emprendedores"</h4>
-                                <p>Déjanos tu email y te enviaremos el acceso inmediato a las 8 estrategias clave.</p>
+                                <p>Déjanos tu email y te enviaremos el acceso inmediato a las 8 estrategias clave para tu nueva oportunidad.</p>
                             </div>
                             <form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/28295963" data-code="28295963" method="post" target="_blank">
                                 <div class="ml-form-formContent">
@@ -308,10 +477,10 @@
                                     </div>
                                 </div>
                                 <div class="ml-form-embedSubmit">
-                                    <button type="submit" class="primary">DESCARGAR MI GUIA DE IA</button>
+                                    <button type="submit" class="primary">SÍ, QUIERO MI GUÍA GRATUITA</button>
                                     <button disabled="disabled" style="display: none;" type="button" class="loading">
                                         <div class="ml-form-embedSubmitLoad"></div>
-                                        <span class="sr-only">Loading...</span>
+                                        <span class="sr-only">Cargando...</span>
                                     </button>
                                 </div>
                                 <input type="hidden" name="anticsrf" value="true">
@@ -319,14 +488,14 @@
                         </div>
                         <div class="ml-form-successBody row-success" style="display: none">
                             <div class="ml-form-successContent">
-                                <h4>¡Gracias!</h4>
-                                <p>Te has suscrito exitosamente a nuestra lista. Revisa tu bandeja de entrada para descargar tu guía.</p>
+                                <h4>¡Felicidades!</h4>
+                                <p>¡Lo lograste! Revisa tu bandeja de entrada. Tu guía "IA para Emprendedores" te espera para abrirte un mundo de posibilidades.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </section>
 
     <footer>
@@ -344,7 +513,6 @@
     </script>
     <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v2b462bf784a9f9392e2ad47a51d2f66e"></script>
     <script>
-        // Este script se asegura de que el formulario se cargue correctamente
         if (window.ml_webform_28295963_loaded) {
             window.ml_webform_28295963_loaded();
         }
