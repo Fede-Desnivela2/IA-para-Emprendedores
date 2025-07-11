@@ -458,7 +458,9 @@
             <h2>Mira Cómo la IA Puede Transformar Tu Día a Día (Video Explicativo)</h2>
             <p>Un breve video donde te explico de manera sencilla cómo la Inteligencia Artificial puede ser tu mejor asistente, liberándote tiempo y abriéndote puertas hacia nuevas oportunidades laborales y de negocio, incluso si partes desde cero.</p>
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/U_5QcGhau9I?si=46a8cxF0Zat4UZzB&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/channel/UCSPG4CNdNmG9TBkS6Z7mPPg?sub_confirmation=1\u200b6"
+                    title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -610,6 +612,56 @@
                 thumbnails[0].classList.add('active');
             }
         });
+    </script>
+
+    <script>
+        let player; // Variable global para el objeto del reproductor de YouTube
+
+        // 1. Cargar el API de IFrame Player de YouTube
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-video', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        // 2. Función que se llama cuando el reproductor de YouTube está listo
+        function onPlayerReady(event) {
+            const videoElement = document.getElementById('youtube-video');
+
+            // Configuración del Intersection Observer
+            const options = {
+                root: null, // El viewport es el elemento raíz
+                rootMargin: '0px',
+                threshold: 0.5 // El video se reproduce cuando el 50% de él es visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // El video está en el viewport, reproducir
+                        if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                            player.playVideo();
+                        }
+                    } else {
+                        // El video no está en el viewport, pausar
+                        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                            player.pauseVideo();
+                        }
+                    }
+                });
+            }, options);
+
+            // Empezar a observar el video
+            observer.observe(videoElement);
+        }
+
+        // Carga el script del API de YouTube de forma asíncrona
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
 </body>
 </html>
