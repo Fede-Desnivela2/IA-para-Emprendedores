@@ -570,11 +570,22 @@
   </div>
 
   <script>
-    function ml_webform_success_28325929() {
-      var form = document.querySelector('.ml-subscribe-form-28325929');
-      form.querySelector('.row-success').style.display = 'block';
-      form.querySelector('.row-form').style.display = 'none';
-    }
+   function ml_webform_success_28325929() {
+  var form = document.querySelector('.ml-subscribe-form-28325929');
+  form.querySelector('.row-success').style.display = 'block';
+  form.querySelector('.row-form').style.display = 'none';
+
+  // Disparar el cliente de correo predeterminado
+  var email = 'molinafede302@gmail.com';
+  var subject = 'QUIERO MI GUIA AHORA';
+  var body = 'Muchas gracias espero mi guia';
+  var mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Pequeño retraso para que el mensaje de éxito se vea
+  setTimeout(function () {
+    window.location.href = mailtoLink;
+  }, 500); // 0.5 segundos de espera opcional
+}
   </script>
 </section>
 
