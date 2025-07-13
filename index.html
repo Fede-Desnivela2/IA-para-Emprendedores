@@ -533,16 +533,16 @@
               <h4 style="color: var(--color-principal); font-family: 'Montserrat', sans-serif; font-size: 1.8em; margin-bottom: 15px;">Descarga tu guía gratuita: "IA para Emprendedores"</h4>
               <p style="color: var(--color-texto-claro); font-size: 1em;">Déjanos tu nombre y email y te enviaremos el acceso inmediato a las 8 estrategias clave para tu nueva oportunidad.</p>
             </div>
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1661176/forms/159783362623440673/subscribe" method="post" target="_blank">
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1661176/forms/159783362623440673/subscribe" method="post" target="_blank" onsubmit="ml_webform_success_28325929(); return true;">
               <div class="ml-form-formContent">
                 <div class="ml-form-fieldRow">
                   <div class="ml-field-group ml-field-name">
-                    <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 15px;">
+                    <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 15px;">
                   </div>
                 </div>
                 <div class="ml-form-fieldRow ml-last-item">
                   <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Correo electrónico" autocomplete="email" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 15px;">
+                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Correo electrónico" autocomplete="email" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 15px;">
                   </div>
                 </div>
               </div>
@@ -551,23 +551,33 @@
                 <button type="submit" class="primary" style="background-color: var(--color-acento); color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%;">SÍ, QUIERO MI GUÍA GRATUITA</button>
                 <button disabled="disabled" style="display: none;" type="button" class="loading">
                   <div class="ml-form-embedSubmitLoad"></div>
-                  <span class="sr-only">Loading...</span>
+                  <span class="sr-only">Cargando...</span>
                 </button>
               </div>
               <input type="hidden" name="anticsrf" value="true">
             </form>
           </div>
-          <div class="ml-form-successBody row-success" style="display: none">
-            <div class="ml-form-successContent">
-              <h4 style="color: var(--color-secundario);">¡Gracias!</h4>
-              <p style="color: var(--color-texto-claro);">Te has suscripto correctamente. Revisa tu bandeja de entrada.</p>
+
+          <div class="ml-form-successBody row-success" style="display: none;">
+            <div class="ml-form-successContent" style="text-align: center; padding: 20px;">
+              <h4 style="color: var(--color-secundario); font-size: 1.6em; font-family: 'Montserrat', sans-serif; margin-bottom: 10px;">¡Gracias por suscribirte!</h4>
+              <p style="color: var(--color-texto-claro); font-size: 1em;">Revisá tu bandeja de entrada (o correo no deseado) para acceder a la guía gratuita. ¡Esperamos que la disfrutes!</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function ml_webform_success_28325929() {
+      var form = document.querySelector('.ml-subscribe-form-28325929');
+      form.querySelector('.row-success').style.display = 'block';
+      form.querySelector('.row-form').style.display = 'none';
+    }
+  </script>
 </section>
+
 
 
 
