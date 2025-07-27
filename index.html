@@ -493,28 +493,32 @@
     <h2>Tu oportunidad para un cambio empieza ahora</h2>
     <p>Puedes seguir como hasta ahora o tomar una decisión que puede cambiar tu futuro. La guía es 100% gratuita. No pierdes nada por intentarlo, pero tienes mucho por ganar.</p>
 
-    <div id="mlb2-28325929" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-28325929">
+    <div id="mlb2-10582239" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-10582239">
       <div class="ml-form-align-center">
         <div class="ml-form-embedWrapper embedForm" style="background-color: var(--color-fondo-seccion); padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto;">
+          
           <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
             <div class="ml-form-embedContent">
               <h4 style="color: var(--color-principal); font-family: 'Montserrat', sans-serif; font-size: 1.8em; margin-bottom: 15px;">Descarga tu Guía Gratuita</h4>
               <p style="color: var(--color-texto-claro); font-size: 1em;">Déjanos tu nombre y tu mejor email para recibir acceso inmediato a las 8 estrategias.</p>
             </div>
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1661176/forms/159783362623440673/subscribe" method="post" target="_blank">
+            
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1661176/forms/159807530869655489/subscribe" data-code="" method="post" target="_blank">
               <div class="ml-form-formContent">
                 <div class="ml-form-fieldRow">
                   <div class="ml-field-group ml-field-name">
-                    <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Tu Nombre" autocomplete="given-name" required>
+                    <input aria-label="name" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="Tu Nombre" autocomplete="given-name">
                   </div>
                 </div>
                 <div class="ml-form-fieldRow ml-last-item">
                   <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Tu Mejor Correo Electrónico" autocomplete="email" required>
+                    <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Tu Mejor Correo Electrónico" autocomplete="email">
                   </div>
                 </div>
               </div>
+              
               <input type="hidden" name="ml-submit" value="1">
+              
               <div class="ml-form-embedSubmit">
                 <button type="submit" class="primary">¡SÍ, QUIERO MI GUÍA AHORA!</button>
                 <button disabled="disabled" style="display: none;" type="button" class="loading">
@@ -522,29 +526,21 @@
                   <span class="sr-only">Cargando...</span>
                 </button>
               </div>
+              <input type="hidden" name="anticsrf" value="true">
             </form>
-          </div>
+            </div>
+
           <div class="ml-form-successBody row-success" style="display: none;">
-            <div class="ml-form-successContent" style="text-align: center; padding: 20px;">
-              <h4 style="color: var(--color-secundario); font-size: 1.6em; font-family: 'Montserrat', sans-serif; margin-bottom: 10px;">¡Gracias!</h4>
-              <p style="color: var(--color-texto-claro); font-size: 1em;">Tu guía va en camino. Revisa tu correo (y la carpeta de spam o promociones).</p>
+            <div class="ml-form-successContent">
+              <h4>¡Gracias!</h4>
+              <p>Te has suscrito correctamente.</p>
             </div>
           </div>
+
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    function ml_webform_success_28325929() {
-      var form = document.querySelector('.ml-subscribe-form-28325929');
-      if (form) {
-        var successMessage = form.querySelector('.row-success');
-        var formContent = form.querySelector('.row-form');
-        if (successMessage) successMessage.style.display = 'block';
-        if (formContent) formContent.style.display = 'none';
-      }
-    }
-  </script>
+    </div>
 </section>
 
     <footer>
